@@ -1,0 +1,11 @@
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\bin\Release\netcoreapp2.0\CW03.deps.json
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\bin\Release\netcoreapp2.0\CW03.runtimeconfig.json
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\bin\Release\netcoreapp2.0\CW03.runtimeconfig.dev.json
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\bin\Release\netcoreapp2.0\CW03.dll
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\bin\Release\netcoreapp2.0\CW03.pdb
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\obj\Release\netcoreapp2.0\CW03.csprojResolveAssemblyReference.cache
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\obj\Release\netcoreapp2.0\CW03.csproj.CoreCompileInputs.cache
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\obj\Release\netcoreapp2.0\CW03.AssemblyInfoInputs.cache
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\obj\Release\netcoreapp2.0\CW03.AssemblyInfo.cs
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\obj\Release\netcoreapp2.0\CW03.dll
+C:\Users\dani1\Documents\GitHub\CO3098\CO3098_MiniWeb_dac27\CW03\Cw03\obj\Release\netcoreapp2.0\CW03.pdb

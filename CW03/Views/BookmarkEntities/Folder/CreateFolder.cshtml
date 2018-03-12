@@ -1,0 +1,50 @@
+﻿@model CW03.Models.BookmarkEntity
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create Bookmark</h2>
+
+<h4>New Folder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8 col-lg-offset-2">
+        <form asp-action="CreateFolder">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookmarkType" class="control-label"></label>
+                <select asp-for="BookmarkType" asp-items="@ViewBag.Types" class="form-control" disabled=""></select>
+                <span asp-validation-for="BookmarkType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ReadOnly" /> Read Only
+                    </label>
+                </div>
+            </div>
+
+            <input asp-for="ParentPath" type="hidden" />
+            <input type="hidden" value="@ViewBag.returnUrl" name="returnUrl" />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="reset" value="Reset" class="btn btn-danger" />
+                <input type="button" class="btn btn-default" onclick="goBack()" value="Go Back"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

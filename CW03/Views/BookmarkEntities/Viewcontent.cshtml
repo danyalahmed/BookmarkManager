@@ -1,0 +1,98 @@
+﻿@model IEnumerable<CW03.Models.BookmarkEntity>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @{
+                switch (item.BookmarkType)
+                {
+                    case BookmarkEntity.Type.FOLDER:
+                        {
+                            <span class="glyphicon glyphicon-folder-close"> </span>
+                            break;
+                        }
+                    case BookmarkEntity.Type.LINK:
+                        {
+                            <span class="glyphicon glyphicon-link"> </span>
+                            break;
+                        }
+                    case BookmarkEntity.Type.LOCATION:
+                        {<span class="glyphicon glyphicon-map-marker"> </span>
+                            break;
+                        }
+                    case BookmarkEntity.Type.TEXTFILE:
+                        {<span class="glyphicon glyphicon-file"> </span>
+                            break;
+                        }
+                }
+            }
+
+
+            @Html.DisplayFor(modelItem => item.BookmarkType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td class="text-center">
+            @if (item.ReadOnly)
+            {
+                <span>Read Only</span>
+            }
+            else
+            {
+                <span>Editable</span>
+            }
+        </td>
+        <td>
+            @if ((item.ParentPath) == null)
+            {
+                <span>Root</span>
+            }
+            else
+            {
+                <span class="overflow-ellipse">
+                    @Html.DisplayFor(modelItem => item.ParentPath)
+                </span>
+            }
+
+        </td>
+        <td>
+            <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
+            </a>
+            <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">
+                <span class="glyphicon glyphicon-info-sign "></span>
+                Details
+            </a>
+            @if (item.BookmarkType == BookmarkEntity.Type.FOLDER && item.ReadOnly)
+    {
+        <a class="btn btn-sm btn-warning" asp-action="Unlock" asp-route-id="@item.Id">
+            <span class="glyphicon glyphicon-unchecked"></span>
+            Unlock
+        </a>
+}
+else
+{
+        <a class="btn btn-sm btn-warning" asp-action="Lock" asp-route-id="@item.Id">
+            <span class="glyphicon glyphicon-lock"></span>
+            Lock
+        </a>
+}
+            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                <span class="glyphicon glyphicon-remove"></span>
+                Delete
+            </a>
+            @if (item.BookmarkType == BookmarkEntity.Type.FOLDER)
+    {
+        <a class="btn btn-sm btn-default" asp-action="ViewContent" asp-route-id="@item.Id">
+            <span class="glyphicon glyphicon-folder-open"></span>
+            View Content
+        </a>
+
+}
+
+        </td>
+    </tr>
+}

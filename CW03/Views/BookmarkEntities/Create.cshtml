@@ -1,0 +1,41 @@
+﻿@model CW03.Models.BookmarkEntity
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>Create Bookmark </h2>
+
+<h4>Select the type of bookmark.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8 col-lg-offset-2">
+        <form asp-action="Create" method="get">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookmarkType" class="control-label"></label>
+                <select asp-for="BookmarkType" asp-items="@ViewBag.Types" class="form-control"></select>
+                <span asp-validation-for="BookmarkType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParentPath" class="control-label"></label>
+                <select asp-for="ParentPath" asp-items="@ViewBag.Path" class="form-control"></select>
+                <span asp-validation-for="ParentPath" class="text-danger"></span>
+            </div>
+
+            <input type="hidden" value="@ViewBag.returnUrl" name="returnUrl" />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="reset" value="Reset" class="btn btn-danger" />
+                <input type="button" class="btn btn-default" onclick="goBack()" value="Go Back" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

@@ -1,0 +1,59 @@
+﻿@model CW03.Models.ItemLink
+
+@{
+    ViewData["Title"] = "CreateLink";
+}
+
+<h2>Create new Bookmark</h2>
+
+<h4>Link</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8 col-lg-offset-2">
+        <form asp-action="CreateLink">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Uri" class="control-label"></label>
+                <input asp-for="Uri" class="form-control" />
+                <span asp-validation-for="Uri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookmarkType" class="control-label"></label>
+                <select asp-for="BookmarkType" asp-items="@ViewBag.Types" class="form-control" disabled=""></select>
+                <span asp-validation-for="BookmarkType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ReadOnly" /> @Html.DisplayNameFor(model => model.ReadOnly)
+                    </label>
+                </div>
+            </div>
+
+            <input asp-for="ParentPath" class="form-control" type="hidden" />
+            <input type="hidden" value="@ViewBag.returnUrl" name="returnUrl" />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="reset" value="Reset" class="btn btn-danger" />
+                <input type="button" class="btn btn-default" onclick="goBack()" value="Go Back" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

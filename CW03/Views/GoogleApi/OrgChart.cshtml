@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "OrgChart";
+}
+
+<h2>Google Org Charts</h2>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { packages: ["orgchart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+
+        $.ajax({
+            type: "POST",
+            url: "/GoogleApi/GetOrgChart",
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: OnSuccess_getOrgData,
+            error: OnErrorCall_getOrgData
+        });
+        function OnSuccess_getOrgData(response) {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'bookmark');
+            data.addColumn('string', 'parent');
+            data.addColumn('string', 'ToolTip');
+
+            response.forEach(function (d) {
+                data.addRows([
+                    [d.name, d.parentName, '']
+                ]);
+            })
+
+            // Create the chart.
+            var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+            // Draw the chart, setting the allowHtml option to true for the tooltips.
+            chart.draw(data, { allowHtml: true });
+        }
+        function OnErrorCall_getOrgData() {
+            console.log("Whoops something went wrong :( ");
+        }
+
+    }
+</script>
+<div id="chart_div" ></div>
+<br />
+<div class="pull-right">
+    <a class="btn btn-info" asp-action="TreeMap">Google Treemap</a>
+    <a class="btn btn-default" asp-controller="/Home" asp-action="Index">Back to Home</a>
+</div>

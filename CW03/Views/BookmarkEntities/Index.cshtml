@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CW03.Models.BookmarkEntity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>List of Bookmarks</h2>
+
+<p class="alert alert-dismissable alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    In the list below you can see the folders at '@ViewBag.Parent'. 
+    To view further items click on 'View Content'. 
+    This will allow you to see the content in that particular folder.
+</p>
+
+<p>
+    <a href="/BookmarkEntities/CreateType?ParentPath=@ViewBag.Parent&returnUrl=/BookmarkEntities/ViewContent/@ViewBag.ParentId">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookmarkType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="text-center">
+                <span>Permissions</span>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParentPath)
+            </th>
+            <th class="col-md-5 text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+       @Html.Partial("ViewContent", Model)
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>
+    Bookmarks
+</h2>
+
+<p class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    Please make sure that your browser is able to run javascript. 
+    If your browser does not support javascript, please use "Bookmarks List" tab to manage your bookmarks.
+</p>
+<p class="alert alert-dismissable alert-info">
+    To create a new folder or add a new bookmark, 
+    please select one of the parent folders, or a sibling bookmark!
+</p>
+<div class="text-right">    
+    <div id="toHide">
+        <a href="/BookmarkEntities/CreateType?ParentPath=Root&returnUrl=Home" class="btn btn-success" id="BookMark">Create new Bookmark</a>
+    </div>        
+    <div id="toDisplay" class="hidden">
+        <a class="btn btn-success" id="newBookMark">Create new Bookmark</a>
+        <a class="btn btn-info" id="BookMarkDetail">Details</a>
+        <a class="btn btn-primary" id="editBookMark">Edit</a>
+        <a class="btn btn-warning" id="lockBookMark">Lock</a>
+        <a class="btn btn-warning" id="UnlockBookMark">Unlock</a>
+        <a class="btn btn-danger" id="deleteBookMark">Delete</a>
+    </div>
+        
+</div>
+<br />
+<div id="accordion" role="tablist" class="list-group">
+    @Html.Raw(ViewBag.TreeStringList)
+</div>

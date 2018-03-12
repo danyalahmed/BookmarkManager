@@ -1,0 +1,58 @@
+﻿@model CW03.Models.Folder
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Folder</h4>
+    <hr />
+    @if (ViewBag.DirectChild > 0 || ViewBag.IndirectChild > 0)
+    {
+        <p class="alert alert-dismissable alert-danger">
+            There exist @ViewBag.DirectChild direct and @ViewBag.IndirectChild indirect bookmarks, in this folder.
+            If you this folder is deleted all the children will be deleted as well!
+        </p>
+    }
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookmarkType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookmarkType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadOnly)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReadOnly)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentPath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParentPath)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />        
+        <input type="button" class="btn btn-default" onclick="goBack()" value="Go Back" />
+    </form>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

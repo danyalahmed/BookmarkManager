@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "TreeMap";
+}
+
+<h2>Google Tree Map</h2>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['treemap'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        $.ajax({
+            type: "POST",
+            url: "/GoogleApi/GetTreeMap",
+            data: '{}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: OnSuccess_getOrgData,
+            error: OnErrorCall_getOrgData
+        });
+
+        function OnSuccess_getOrgData(response) {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Location');
+            data.addColumn('string', 'parent');
+            data.addColumn('number', 'size');
+            data.addColumn('number', 'color');
+            response.forEach(function (d) {
+                data.addRows([
+                    [d.name, d.parentName, d.items, 0]
+                ]);
+            })
+
+
+            var tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+            tree.draw(data, {
+                minColor: '#f00',
+                midColor: '#ddd',
+                maxColor: '#0d0',
+                headerHeight: 25,
+                fontColor: 'black',
+                showScale: true
+            });
+        }
+        function OnErrorCall_getOrgData() {
+            console.log("Whoops something went wrong :( ");
+        }
+    }
+</script>
+<div id="chart_div"></div>
+<br />
+<div class="pull-right">
+    <a class="btn btn-info" asp-action="OrgChart">Google Org Chart</a>
+    <a class="btn btn-default" asp-controller="/Home" asp-action="Index">Back to Home</a>
+</div>
