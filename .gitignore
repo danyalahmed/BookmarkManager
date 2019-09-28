@@ -18,20 +18,20 @@ nupkg/
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-build/
-bld/
-[Bb]in/
-[Oo]bj/
-[Oo]ut/
-msbuild.log
-msbuild.err
-msbuild.wrn
+CW03/[Dd]ebug/
+CW03/[Dd]ebugPublic/
+CW03/[Rr]elease/
+CW03/[Rr]eleases/
+CW03/x64/
+CW03/x86/
+CW03/build/
+CW03/bld/
+CW03/[Bb]in/
+CW03/[Oo]bj/
+CW03/[Oo]ut/
+CW03/msbuild.log
+CW03/msbuild.err
+CW03/msbuild.wrn
 
 # Visual Studio 2015
 .vs/
