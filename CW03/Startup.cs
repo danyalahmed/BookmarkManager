@@ -26,9 +26,11 @@ namespace CW03
             services.AddDbContext<CW03Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CW03Context")));
 
+            services.AddSingleton(Configuration);
+
             //Adding application services
             services.AddTransient<IBookmarkEntityRepo, BookmarkEntityRepo>();
-            services.AddTransient<IFolderRepo, FolderRepo>();            
+            services.AddTransient<IFolderRepo, FolderRepo>();
             services.AddTransient<IItemLinkRepo, ItemLinkRepo>();
             services.AddTransient<IItemLocationRepo, ItemLocationRepo>();
             services.AddTransient<IItemTextfileRepo, ItemTextfileRepo>();

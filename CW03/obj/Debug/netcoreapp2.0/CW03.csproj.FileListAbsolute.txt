@@ -25,9 +25,13 @@ C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\CW0
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\CW03.runtimeconfig.dev.json
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\CW03.dll
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\CW03.pdb
-C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.csproj.CoreCompileInputs.cache
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.AssemblyInfoInputs.cache
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.AssemblyInfo.cs
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.dll
 C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.pdb
-C:\Users\dani1\Documents\GitHub\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.csprojResolveAssemblyReference.cache
+C:\Users\dani1\Documents\Github\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\appsettings.Development.json
+C:\Users\dani1\Documents\Github\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\appsettings.json
+C:\Users\dani1\Documents\Github\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\bundleconfig.json
+C:\Users\dani1\Documents\Github\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\libman.json
+C:\Users\dani1\Documents\Github\BookmarkManager\Cw03\bin\Debug\netcoreapp2.0\Properties\launchSettings.json
+C:\Users\dani1\Documents\Github\BookmarkManager\Cw03\obj\Debug\netcoreapp2.0\CW03.csprojAssemblyReference.cache
