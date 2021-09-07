@@ -33,6 +33,7 @@ namespace CW03
 
             services.AddDbContext<CW03Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CW03Context")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddSingleton(Configuration);
             services.AddControllersWithViews();
@@ -52,6 +53,7 @@ namespace CW03
                 // migrate any database changes on startup (includes initial db creation)
                 dataContext.Database.Migrate();
                 app.UseDeveloperExceptionPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
