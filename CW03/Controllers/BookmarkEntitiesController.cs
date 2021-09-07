@@ -405,7 +405,7 @@ namespace CW03.Controllers
 
             if (ModelState.IsValid)
             {
-                if (parent.ReadOnly)
+                if (parent != null &&  parent.ReadOnly)
                 {
                     return View("Error", new ErrorViewModel("Parent folder is not Editable!", "\'" + folder.ParentPath + "\' is readonly"));
                 }

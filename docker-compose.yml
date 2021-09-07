@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  cw03:
+    image: ${DOCKER_REGISTRY-}cw03
+    build:
+      context: .
+      dockerfile: Cw03/Dockerfile
+  mssql:
+    image: "mcr.microsoft.com/mssql/server"
+    restart: unless-stopped
+    container_name: mssql
+    hostname: mssql
+    environment:
+      SA_PASSWORD: "Password123!"
+      ACCEPT_EULA: "Y"

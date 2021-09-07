@@ -35,3 +35,5 @@ CW03/msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+/bin/Debug
+/obj
