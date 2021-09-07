@@ -30,13 +30,12 @@ namespace CW03
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddMvc();
 
             services.AddDbContext<CW03Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CW03Context")));
 
             services.AddSingleton(Configuration);
-
+            services.AddControllersWithViews();
             //Adding application services
             services.AddTransient<IBookmarkEntityRepo, BookmarkEntityRepo>();
             services.AddTransient<IFolderRepo, FolderRepo>();
@@ -60,10 +59,15 @@ namespace CW03
                 app.UseHsts();
             }
 
+            app.UseRouting();
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseRouting();
+
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

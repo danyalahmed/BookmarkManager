@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CW03.Migrations
 {
     [DbContext(typeof(CW03Context))]
-    [Migration("20210907084437_Initial")]
+    [Migration("20210907103657_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
+                .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -24,18 +24,24 @@ namespace CW03.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookmarkType");
+                    b.Property<int>("BookmarkType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Discriminator")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ParentPath");
+                    b.Property<string>("ParentPath")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ReadOnly");
+                    b.Property<bool>("ReadOnly")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -48,9 +54,6 @@ namespace CW03.Migrations
                 {
                     b.HasBaseType("CW03.Models.BookmarkEntity");
 
-
-                    b.ToTable("Folder");
-
                     b.HasDiscriminator().HasValue("Folder");
                 });
 
@@ -58,9 +61,8 @@ namespace CW03.Migrations
                 {
                     b.HasBaseType("CW03.Models.BookmarkEntity");
 
-                    b.Property<string>("Content");
-
-                    b.ToTable("Item");
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Item");
                 });
@@ -69,9 +71,8 @@ namespace CW03.Migrations
                 {
                     b.HasBaseType("CW03.Models.Item");
 
-                    b.Property<string>("Title");
-
-                    b.ToTable("ItemLink");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("ItemLink");
                 });
@@ -80,18 +81,12 @@ namespace CW03.Migrations
                 {
                     b.HasBaseType("CW03.Models.Item");
 
-
-                    b.ToTable("ItemLocation");
-
                     b.HasDiscriminator().HasValue("ItemLocation");
                 });
 
             modelBuilder.Entity("CW03.Models.ItemTextFile", b =>
                 {
                     b.HasBaseType("CW03.Models.Item");
-
-
-                    b.ToTable("ItemTextFile");
 
                     b.HasDiscriminator().HasValue("ItemTextFile");
                 });

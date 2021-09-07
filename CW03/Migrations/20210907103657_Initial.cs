@@ -1,11 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CW03.Migrations
 {
-    public partial class _01 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,16 +11,14 @@ namespace CW03.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BookmarkType = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    ParentPath = table.Column<string>(nullable: true),
                     ReadOnly = table.Column<bool>(nullable: false),
+                    ParentPath = table.Column<string>(nullable: true),
+                    Discriminator = table.Column<string>(nullable: false),
                     Content = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Uri = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
