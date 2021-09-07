@@ -30,7 +30,7 @@ namespace CW03
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddMvc()
-                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1); 
+                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2); 
 
             services.AddDbContext<CW03Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CW03Context")));
